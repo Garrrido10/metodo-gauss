@@ -4,7 +4,7 @@ Markdown
 Implementación en Java del método numérico de Eliminación Gaussiana simple con sustitución regresiva, desarrollado bajo un enfoque modular.
 
 ## Lenguaje de programación
-* **Java** (versión 8 o superior recomendada).
+* **Java** 
 
 ## Pasos para compilar y ejecutar el programa
 
