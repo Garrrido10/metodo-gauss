@@ -1,0 +1,23 @@
+public class Lanzador_GaussJordan {
+
+        public static void main(String[] args) {
+            // Ejemplo de matriz aumentada (Sistema de 3 ecuaciones con 3 incógnitas)
+            // 2x + y - z = 8
+            // -3x - y + 2z = -11
+            // -2x + y + 2z = -3
+            double[][] sistema = {
+                    {2.0, 1.0, -1.0, 8.0},
+                    {-3.0, -1.0, 2.0, -11.0},
+                    {-2.0, 1.0, 2.0, -3.0}
+            };
+
+            // Resolución utilizando la clase modular GaussJordan
+            double[] resultados = GaussJordan.resolver(sistema);
+
+            // Despliegue de resultados en consola
+            System.out.println("=== SOLUCIÓN DEL SISTEMA ===");
+            for (int i = 0; i < resultados.length; i++) {
+                System.out.printf("x%d = %.4f\n", (i + 1), resultados[i]);
+            }
+        }
+    }
