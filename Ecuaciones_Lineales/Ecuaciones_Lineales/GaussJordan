@@ -1,0 +1,39 @@
+public class GaussJordan {
+
+    /**
+     * Resuelve el sistema de ecuaciones aplicando el método de Gauss-Jordan,
+     * reutilizando la triangulación superior previa.
+     */
+    public static double[] resolver(double[][] matrizAumentada) {
+        int n = matrizAumentada.length;
+
+        // Paso 1: Reutilizar el módulo de triangulación superior
+        double[][] matrizTriangular = Gauss.eliminacionGaussiana(matrizAumentada);
+
+        // Paso 2: Normalización y barrido superior (desde el último renglón hacia arriba)
+        for (int i = n - 1; i >= 0; i--) {
+            double pivote = matrizTriangular[i][i];
+
+            // Normalizar el renglón actual dividiendo entre el pivote
+            for (int j = i; j <= n; j++) {
+                matrizTriangular[i][j] /= pivote;
+            }
+
+            // Barrido superior: anular los elementos por encima de la diagonal principal
+            for (int k = i - 1; k >= 0; k--) {
+                double factor = matrizTriangular[k][i];
+                for (int j = i; j <= n; j++) {
+                    matrizTriangular[k][j] -= factor * matrizTriangular[i][j];
+                }
+            }
+        }
+
+        // Paso 3: Lectura directa de resultados (la última columna contiene las soluciones)
+        double[] soluciones = new double[n];
+        for (int i = 0; i < n; i++) {
+            soluciones[i] = matrizTriangular[i][n];
+        }
+
+        return soluciones;
+    }
+}
