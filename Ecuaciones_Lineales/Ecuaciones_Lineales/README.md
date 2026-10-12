@@ -1,26 +1,37 @@
-# Método de Gauss - Sistemas de Ecuaciones Lineales
+# Métodos Numéricos - Sistemas de Ecuaciones Lineales
 
-Implementación en Java del método numérico de Eliminación Gaussiana simple con sustitución regresiva, desarrollado bajo un enfoque modular.
+Este repositorio contiene las implementaciones en Java desarrolladas bajo un enfoque modular para la resolución de sistemas de ecuaciones lineales.
 
-## Lenguaje de programación
-* **Java** 
-## Pasos para compilar y ejecutar el programa
+---
 
-1. Asegúrate de tener instalado el **JDK de Java** en tu computadora.
-2. Abre tu terminal o consola y dirígete a la carpeta raíz del proyecto.
-3. Compila los archivos fuente ejecutando el siguiente comando:
-   ```bash
-   javac Ecuaciones_lineales/defmatrizz.java Ecuaciones_lineales/Gauss.java Ecuaciones_lineales/Lanzador_gaus.java
+## Práctica 1: Método de Eliminación Gaussiana
+Implementación del método numérico de eliminación gaussiana con pivoteo parcial y sustitución regresiva.
 
- ## Ejemplo de prueba y salida por consola
-### Matriz de entrada (Aumentada [A | b]):
-* Fila 1: `3.0x1 - 0.1x2 - 0.2x3 = 7.85`
-* Fila 2: `0.1x1 + 7.0x2 - 0.3x3 = -19.3`
-* Fila 3: `0.3x1 - 0.2x2 + 10.0x3 = 71.4`
+### Estructura modular:
+- **`Gauss.java`**: Contiene la lógica para la triangulación superior de la matriz aumentada.
+- **`Lanzador_gaus.java`**: Clase ejecutable con el método `main` para probar la eliminación gaussiana.
 
-### Salida esperada en consola:
+### Pasos para compilar y ejecutar:
+1. Abre tu proyecto en IntelliJ IDEA.
+2. Ejecuta el archivo **`Lanzador_gaus.java`**.
+
+---
+
+## Práctica 2: Método de Gauss-Jordan
+Implementación del método de Gauss-Jordan reutilizando el módulo de triangulación superior previo para transformar la matriz aumentada directamente en una matriz identidad y obtener el vector de soluciones de manera directa.
+
+### Estructura modular:
+- **`Gauss.java`**: Módulo reutilizado de triangulación superior.
+- **`GaussJordan.java`**: Contiene la lógica de normalización de pivotes y barrido superior.
+- **`Lanzador_GaussJordan.java`** (o `Main.java`): Clase ejecutable para probar el método.
+
+### Pasos para compilar y ejecutar:
+1. Asegúrate de tener los archivos `Gauss.java`, `GaussJordan.java` y tu clase lanzadora en la carpeta `src`.
+2. Haz clic derecho sobre tu clase lanzadora y selecciona **Run**.
+
+### Ejemplo de prueba y salida en consola:
 ```text
-Soluciones del sistema:
-x1 = 3.0
-x2 = -2.5
-x3 = 7.0
+=== SOLUCIÓN DEL SISTEMA ===
+x1 = 2.0000
+x2 = 3.0000
+x3 = -1.0000
